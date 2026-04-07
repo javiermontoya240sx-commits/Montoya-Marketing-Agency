@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montoya Marketing Agency | Grow. Dominate. Lead.</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --mocha-950: #1C1410;
+  --mocha-900: #2E1F15;
+  --mocha-800: #4A3020;
+  --mocha-700: #6B4430;
+  --mocha-600: #8B5A3C;
+  --mocha-500: #A67355;
+  --mocha-400: #C4956F;
+  --mocha-300: #D9B99A;
+  --mocha-200: #EDDBCA;
+  --mocha-100: #F6EDE4;
+  --mocha-50:  #FAF8F5;
+
+  --blue-700: #1D4E8F;
+  --blue-600: #2563B0;
+  --blue-500: #3B82D4;
+  --blue-400: #6AA3E0;
+  --blue-300: #9DC4ED;
+  --blue-200: #C8DFFA;
+  --blue-100: #E8F2FD;
+
+  --bg: var(--mocha-50);
+  --bg-alt: #FFFFFF;
+  --text: var(--mocha-950);
+  --text-muted: var(--mocha-600);
+  --border: rgba(107,68,48,0.12);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 70px;
+  background: rgba(250,248,245,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 4px 32px rgba(46,31,21,0.08); }
+
+.logo {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem; font-weight: 800;
+  color: var(--mocha-900); letter-spacing: -0.02em; text-decoration: none;
+}
+.logo .dot { color: var(--blue-500); }
+
+.nav-center { display: flex; gap: 2.5rem; list-style: none; }
+.nav-center a {
+  text-decoration: none; font-size: 0.875rem; font-weight: 500;
+  color: var(--text-muted); transition: color 0.2s;
+}
+.nav-center a:hover { color: var(--mocha-900); }
+
+.nav-btn {
+  background: var(--mocha-900); color: var(--mocha-50);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  padding: 0.55rem 1.3rem; border-radius: 4px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-btn:hover { background: var(--blue-700); }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; padding: 70px 5vw 0; gap: 4rem;
+  position: relative; overflow: hidden;
+}
+
+.hero-left { position: relative; z-index: 1; padding: 5rem 0; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--blue-100); border: 1px solid var(--blue-200);
+  color: var(--blue-700);
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.4rem 0.9rem; border-radius: 100px;
+  margin-bottom: 1.75rem;
+}
+.badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue-500);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.4; transform:scale(0.75); }
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 800; line-height: 1.04;
+  letter-spacing: -0.02em; color: var(--mocha-950);
+  margin-bottom: 1.5rem;
+}
+h1 .hl { color: var(--blue-600); }
+h1 .und { position: relative; display: inline-block; }
+h1 .und::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 3px; background: var(--mocha-400); border-radius: 2px;
+}
+
+.hero-sub {
+  font-size: 1.08rem; font-weight: 300; color: var(--mocha-600);
+  line-height: 1.8; max-width: 480px; margin-bottom: 2.5rem;
+}
+
+.hero-btns { display: flex; gap: 0.875rem; flex-wrap: wrap; }
+
+.btn-p {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--mocha-900); color: var(--mocha-50);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 600;
+  padding: 0.875rem 1.75rem; border-radius: 4px;
+  text-decoration: none; transition: background 0.2s, transform 0.15s;
+}
+.btn-p:hover { background: var(--mocha-800); transform: translateY(-2px); }
+.arr { transition: transform 0.2s; }
+.btn-p:hover .arr { transform: translateX(3px); }
+
+.btn-o {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; color: var(--mocha-800);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 500;
+  padding: 0.875rem 1.75rem; border-radius: 4px;
+  text-decoration: none; border: 1.5px solid var(--mocha-300);
+  transition: all 0.2s;
+}
+.btn-o:hover { border-color: var(--mocha-700); background: var(--mocha-100); }
+
+.hero-trust {
+  display: flex; align-items: center; gap: 1rem;
+  margin-top: 2.5rem; font-size: 0.82rem; color: var(--mocha-500);
+}
+.trust-div { width: 1px; height: 18px; background: var(--mocha-200); }
+.stars { color: var(--blue-500); }
+
+.hero-right {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; gap: 1rem;
+  padding: 7rem 0 5rem;
+}
+
+.hcard {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem 1.75rem; position: relative; overflow: hidden;
+}
+.hcard::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--blue-400);
+}
+.hcard.m::before { background: var(--mocha-400); }
+
+.card-lbl {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--blue-500); margin-bottom: 0.5rem;
+}
+.hcard.m .card-lbl { color: var(--mocha-400); }
+
+.card-val {
+  font-family: 'Merriweather', serif;
+  font-size: 2rem; font-weight: 800; color: var(--mocha-900); line-height: 1;
+}
+.card-sub { font-size: 0.83rem; color: var(--mocha-500); margin-top: 0.3rem; }
+
+.hcard-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* MARQUEE */
+.mq-wrap { background: var(--mocha-900); padding: 1rem 0; overflow: hidden; }
+.mq-track {
+  display: flex; gap: 2.5rem;
+  animation: mq 28s linear infinite; white-space: nowrap;
+}
+.mq-item {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  font-size: 0.76rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--mocha-300); flex-shrink: 0;
+}
+.mq-sep { color: var(--blue-500); font-size: 0.45rem; }
+@keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* SECTIONS */
+.sec { padding: 6rem 5vw; }
+.sec-dark { background: var(--mocha-900); }
+.sec-white { background: #fff; }
+.sec-tint { background: var(--mocha-100); }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue-600); margin-bottom: 1rem;
+}
+.ey-line { width: 26px; height: 1.5px; background: var(--blue-500); border-radius: 1px; }
+.eyebrow.lt { color: var(--blue-300); }
+.eyebrow.lt .ey-line { background: var(--blue-400); }
+
+h2 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800; letter-spacing: -0.02em;
+  line-height: 1.1; color: var(--mocha-950); margin-bottom: 1rem;
+}
+h2 .ac { color: var(--blue-600); }
+h2.lt { color: var(--mocha-50); }
+h2.lt .ac { color: var(--blue-300); }
+
+.lead {
+  font-size: 1.05rem; font-weight: 300;
+  color: var(--mocha-600); line-height: 1.8; max-width: 560px;
+}
+.lead.lt { color: var(--mocha-400); }
+
+/* ABOUT */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center; margin-top: 4rem;
+}
+
+.a-stat {
+  display: flex; align-items: flex-start; gap: 1.25rem;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px; margin-bottom: 1rem;
+}
+.a-stat:last-child { margin-bottom: 0; }
+
+.a-num {
+  font-family: 'Merriweather', serif;
+  font-size: 2.4rem; font-weight: 800;
+  color: var(--blue-300); line-height: 1; min-width: 76px;
+}
+.a-txt h4 { font-size: 0.95rem; font-weight: 600; color: var(--mocha-100); margin-bottom: 0.25rem; }
+.a-txt p { font-size: 0.875rem; color: var(--mocha-500); font-weight: 300; line-height: 1.6; }
+
+.val-row {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.val-row:last-child { border-bottom: none; }
+
+.val-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: rgba(59,130,212,0.12);
+  border: 1px solid rgba(59,130,212,0.25);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.val-body h4 { font-size: 0.95rem; font-weight: 600; color: var(--mocha-100); margin-bottom: 0.2rem; }
+.val-body p { font-size: 0.875rem; color: var(--mocha-500); font-weight: 300; line-height: 1.65; }
+
+/* SERVICES */
+.svc-hdr {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 3rem; flex-wrap: wrap; gap: 2rem;
+}
+
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+
+.svc {
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; cursor: default;
+  position: relative; overflow: hidden;
+}
+.svc::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--blue-400);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+}
+.svc:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(46,31,21,0.09); border-color: var(--blue-300); }
+.svc:hover::after { transform: scaleX(1); }
+
+.svc-no {
+  font-family: 'Merriweather', serif; font-size: 0.68rem; font-weight: 800;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--mocha-300); margin-bottom: 1.25rem;
+}
+.svc-ico {
+  width: 46px; height: 46px; background: var(--blue-100);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; margin-bottom: 1.25rem;
+}
+.svc h3 {
+  font-family: 'Merriweather', serif; font-size: 1.1rem; font-weight: 700;
+  color: var(--mocha-950); margin-bottom: 0.6rem;
+}
+.svc p { font-size: 0.875rem; color: var(--mocha-600); line-height: 1.7; font-weight: 300; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
+.tag {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--mocha-100); color: var(--mocha-700);
+  padding: 0.25rem 0.6rem; border-radius: 4px;
+}
+
+/* PROCESS */
+.proc-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 0; margin-top: 4rem;
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+}
+.proc-step {
+  padding: 2.25rem 2rem; background: #fff;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.proc-step:nth-child(3n) { border-right: none; }
+.proc-step:nth-child(4), .proc-step:nth-child(5), .proc-step:nth-child(6) { border-bottom: none; }
+
+.proc-num {
+  font-family: 'Merriweather', serif; font-size: 3rem; font-weight: 800;
+  color: var(--mocha-200); line-height: 1; margin-bottom: 1rem;
+}
+.proc-step h3 {
+  font-family: 'Merriweather', serif; font-size: 1rem; font-weight: 700;
+  color: var(--mocha-900); margin-bottom: 0.5rem;
+}
+.proc-step p { font-size: 0.875rem; color: var(--mocha-600); line-height: 1.65; font-weight: 300; }
+
+/* WHY */
+.why-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
+
+.why-item {
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+}
+.why-item:first-child { padding-top: 0; }
+.why-item:last-child { border-bottom: none; }
+
+.why-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--blue-500); flex-shrink: 0; margin-top: 6px; }
+.why-txt h4 { font-size: 1rem; font-weight: 600; color: var(--mocha-900); margin-bottom: 0.3rem; }
+.why-txt p { font-size: 0.875rem; color: var(--mocha-600); line-height: 1.7; font-weight: 300; }
+
+.pipeline {
+  background: var(--mocha-950); border-radius: 16px; padding: 2.25rem;
+}
+.pip-title {
+  font-family: 'Merriweather', serif; font-size: 1rem; font-weight: 700;
+  color: var(--mocha-100); margin-bottom: 1.75rem;
+  padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.pip-step {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.pip-step:last-child { border-bottom: none; }
+.pip-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(59,130,212,0.12);
+  border: 1.5px solid var(--blue-500);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Merriweather', serif; font-size: 0.7rem; font-weight: 800;
+  color: var(--blue-300); flex-shrink: 0;
+}
+.pip-info h5 { font-size: 0.875rem; font-weight: 600; color: var(--mocha-100); margin-bottom: 0.15rem; }
+.pip-info p { font-size: 0.78rem; color: var(--mocha-500); font-weight: 300; }
+
+/* PRICING */
+.price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-top: 3.5rem; align-items: start; }
+
+.plan {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2.25rem; position: relative;
+  transition: transform 0.2s;
+}
+.plan:hover { transform: translateY(-4px); }
+.plan.feat {
+  background: var(--mocha-950); border-color: var(--blue-600);
+  transform: scale(1.02);
+}
+.plan.feat:hover { transform: scale(1.02) translateY(-4px); }
+
+.plan-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--blue-600); color: #fff;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.3rem 1rem; border-radius: 100px;
+}
+
+.plan-tier {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--mocha-500); margin-bottom: 1rem;
+}
+.plan.feat .plan-tier { color: var(--blue-300); }
+
+.plan-price {
+  font-family: 'Merriweather', serif; font-size: 2.8rem; font-weight: 800;
+  color: var(--mocha-950); line-height: 1;
+}
+.plan.feat .plan-price { color: #fff; }
+.plan-price sup { font-size: 1.2rem; font-weight: 600; vertical-align: super; }
+
+.plan-per { font-size: 0.82rem; color: var(--mocha-500); margin-bottom: 1.25rem; }
+.plan.feat .plan-per { color: var(--mocha-400); }
+
+.plan-desc {
+  font-size: 0.875rem; color: var(--mocha-600); font-weight: 300; line-height: 1.65;
+  margin-bottom: 1.5rem; padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.plan.feat .plan-desc { color: var(--mocha-400); border-color: rgba(255,255,255,0.08); }
+
+.plan-feats { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+.plan-feat-item {
+  display: flex; align-items: flex-start; gap: 0.7rem;
+  font-size: 0.875rem; color: var(--mocha-800);
+}
+.plan.feat .plan-feat-item { color: var(--mocha-200); }
+.chk {
+  width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+  background: var(--blue-100);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; color: var(--blue-700); font-weight: 700;
+}
+.plan.feat .chk { background: rgba(59,130,212,0.18); color: var(--blue-300); }
+
+/* TESTIMONIALS */
+.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-top: 3.5rem; }
+.testi {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem;
+}
+.testi-stars { color: var(--blue-500); font-size: 0.9rem; margin-bottom: 1rem; }
+.testi-txt {
+  font-size: 0.95rem; font-style: italic; font-weight: 300;
+  color: var(--mocha-800); line-height: 1.75; margin-bottom: 1.5rem;
+}
+.testi-author { display: flex; align-items: center; gap: 0.75rem; }
+.t-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--mocha-200);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Merriweather', serif; font-size: 0.8rem; font-weight: 800;
+  color: var(--mocha-800); flex-shrink: 0;
+}
+.t-name { font-size: 0.875rem; font-weight: 600; color: var(--mocha-900); }
+.t-role { font-size: 0.78rem; color: var(--mocha-500); }
+
+/* CTA */
+#cta {
+  background: var(--mocha-950); padding: 8rem 5vw;
+  text-align: center; position: relative; overflow: hidden;
+}
+#cta::before {
+  content: 'GROW';
+  position: absolute; font-family: 'Merriweather', serif;
+  font-size: 22vw; font-weight: 800;
+  color: rgba(255,255,255,0.025);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  white-space: nowrap; pointer-events: none; letter-spacing: -0.05em;
+}
+.cta-in { position: relative; z-index: 1; }
+.cta-in h2 { color: #fff; max-width: 700px; margin: 0 auto 1rem; }
+.cta-in .lead { color: var(--mocha-400); margin: 0 auto 2.5rem; text-align: center; }
+
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.btn-sage {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--blue-600); color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 600;
+  padding: 0.875rem 1.75rem; border-radius: 4px;
+  text-decoration: none; transition: background 0.2s, transform 0.15s;
+}
+.btn-sage:hover { background: var(--blue-700); transform: translateY(-2px); }
+
+.btn-gl {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; color: var(--mocha-200);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 500;
+  padding: 0.875rem 1.75rem; border-radius: 4px;
+  text-decoration: none; border: 1.5px solid rgba(255,255,255,0.14);
+  transition: all 0.2s;
+}
+.btn-gl:hover { border-color: rgba(255,255,255,0.32); background: rgba(255,255,255,0.05); }
+
+.cta-note { margin-top: 1.5rem; font-size: 0.8rem; color: var(--mocha-600); }
+
+/* FOOTER */
+footer {
+  background: #0D0A08; padding: 2.25rem 5vw;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.f-logo { font-family: 'Merriweather', serif; font-size: 1.1rem; font-weight: 800; color: var(--mocha-100); }
+.f-logo .dot { color: var(--blue-400); }
+.f-links { display: flex; gap: 2rem; list-style: none; }
+.f-links a { text-decoration: none; font-size: 0.82rem; color: var(--mocha-600); transition: color 0.2s; }
+.f-links a:hover { color: var(--blue-300); }
+.f-copy { font-size: 0.78rem; color: var(--mocha-700); }
+
+/* ANIMATION */
+.rev { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.rev.vis { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 0 4vw; }
+  .nav-center { display: none; }
+  #hero { grid-template-columns: 1fr; padding-top: 70px; }
+  .hero-left { padding: 3rem 0 1rem; }
+  .hero-right { padding: 0 0 3rem; }
+  .about-grid, .why-cols { grid-template-columns: 1fr; gap: 3rem; }
+  .svc-grid, .price-grid, .testi-grid, .proc-grid { grid-template-columns: 1fr; }
+  .proc-step { border-right: none; }
+  .plan.feat { transform: none; }
+  .plan.feat:hover { transform: translateY(-4px); }
+  .svc-hdr { flex-direction: column; }
+  footer { flex-direction: column; align-items: flex-start; }
+  #cta { padding: 5rem 5vw; }
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a class="logo" href="#">Montoya<span class="dot">.</span></a>
+  <ul class="nav-center">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a href="#cta" class="nav-btn">Get a Free Audit</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge"><span class="badge-dot"></span> Now Onboarding · San Marcos, CA</div>
+    <h1>Marketing that <span class="hl">dominates</span> your <span class="und">market.</span></h1>
+    <p class="hero-sub">Montoya Marketing Agency delivers bold, data-driven strategies that cut through the noise — built to grow your brand, generate leads, and build lasting authority.</p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-p">Start Growing <span class="arr">→</span></a>
+      <a href="#services" class="btn-o">View Services</a>
+    </div>
+    <div class="hero-trust">
+      <span class="stars">★★★★★</span>
+      <span>5.0 from early clients</span>
+      <span class="trust-div"></span>
+      <span>No contracts. No fluff. Just results.</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hcard">
+      <div class="card-lbl">Our Commitment</div>
+      <div class="card-val">100%</div>
+      <div class="card-sub">Every account gets dedicated senior-level attention</div>
+    </div>
+    <div class="hcard-row">
+      <div class="hcard m">
+        <div class="card-lbl">Response</div>
+        <div class="card-val" style="font-size:1.6rem">≤ 24h</div>
+        <div class="card-sub">Always reachable</div>
+      </div>
+      <div class="hcard m">
+        <div class="card-lbl">Revisions</div>
+        <div class="card-val" style="font-size:1.6rem">∞</div>
+        <div class="card-sub">Until it's right</div>
+      </div>
+    </div>
+    <div class="hcard m">
+      <div class="card-lbl">Our Advantage</div>
+      <div class="card-val" style="font-size:1.4rem">Fresh Eyes</div>
+      <div class="card-sub">No recycled playbooks. Every strategy built from scratch for you.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq-wrap">
+  <div class="mq-track">
+    <span class="mq-item">Brand Strategy <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Paid Advertising <span class="mq-sep">◆</span></span>
+    <span class="mq-item">SEO & Content <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Social Media <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Email Marketing <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Analytics & Reporting <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Conversion Optimization <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Lead Generation <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Brand Strategy <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Paid Advertising <span class="mq-sep">◆</span></span>
+    <span class="mq-item">SEO & Content <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Social Media <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Email Marketing <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Analytics & Reporting <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Conversion Optimization <span class="mq-sep">◆</span></span>
+    <span class="mq-item">Lead Generation <span class="mq-sep">◆</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec sec-dark">
+  <div class="eyebrow lt"><span class="ey-line"></span> Who We Are</div>
+  <h2 class="lt">A new agency. <span class="ac">Fully committed.</span></h2>
+  <p class="lead lt">We're not the biggest agency — and that's our advantage. Every client gets our best thinking, fastest response, and complete focus from day one.</p>
+
+  <div class="about-grid rev">
+    <div>
+      <div class="a-stat">
+        <div class="a-num">100%</div>
+        <div class="a-txt"><h4>Senior Work on Every Account</h4><p>Our founders work directly on your campaigns. No junior handoffs, ever.</p></div>
+      </div>
+      <div class="a-stat">
+        <div class="a-num">∞</div>
+        <div class="a-txt"><h4>Revisions Until You're Thrilled</h4><p>We earn confidence through results, not contracts. Work continues until it's right.</p></div>
+      </div>
+      <div class="a-stat">
+        <div class="a-num">0</div>
+        <div class="a-txt"><h4>Long-Term Lock-In Contracts</h4><p>Month-to-month only. We keep clients because of results, not paperwork.</p></div>
+      </div>
+    </div>
+    <div>
+      <div class="val-row"><div class="val-icon">🎯</div><div class="val-body"><h4>Results-Obsessed</h4><p>We measure success in outcomes — leads, revenue, growth — not vanity metrics.</p></div></div>
+      <div class="val-row"><div class="val-icon">💡</div><div class="val-body"><h4>Creative Courage</h4><p>We challenge the obvious. Fresh perspectives and bold ideas are baked into everything we do.</p></div></div>
+      <div class="val-row"><div class="val-icon">📊</div><div class="val-body"><h4>Data-Backed Decisions</h4><p>Every strategy is grounded in research and refined through real performance data.</p></div></div>
+      <div class="val-row"><div class="val-icon">🤝</div><div class="val-body"><h4>Radical Transparency</h4><p>Honest reporting, clear communication, and no surprises — ever. You'll always know exactly where your budget is going.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="sec sec-white">
+  <div class="svc-hdr">
+    <div>
+      <div class="eyebrow"><span class="ey-line"></span> What We Offer</div>
+      <h2>Full-stack marketing. <span class="ac">Zero gaps.</span></h2>
+    </div>
+    <p class="lead" style="max-width:340px; font-size:0.95rem;">From brand to demand — every service built to work together, not in isolation.</p>
+  </div>
+  <div class="svc-grid rev">
+    <div class="svc">
+      <div class="svc-no">Service 01</div>
+      <div class="svc-ico">🏷️</div>
+      <h3>Brand Strategy & Identity</h3>
+      <p>We define who you are, why you matter, and how to make every audience interaction count — from positioning to visual systems.</p>
+      <div class="svc-tags"><span class="tag">Positioning</span><span class="tag">Messaging</span><span class="tag">Identity</span></div>
+    </div>
+    <div class="svc">
+      <div class="svc-no">Service 02</div>
+      <div class="svc-ico">📱</div>
+      <h3>Social Media Management</h3>
+      <p>Consistent, high-quality content that builds real community and converts followers into loyal customers across every platform.</p>
+      <div class="svc-tags"><span class="tag">Content</span><span class="tag">Community</span><span class="tag">Growth</span></div>
+    </div>
+    <div class="svc">
+      <div class="svc-no">Service 03</div>
+      <div class="svc-ico">📣</div>
+      <h3>Paid Advertising</h3>
+      <p>Precision-targeted campaigns on Google, Meta, and beyond — designed for maximum ROI and minimum wasted spend.</p>
+      <div class="svc-tags"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">Retargeting</span></div>
+    </div>
+    <div class="svc">
+      <div class="svc-no">Service 04</div>
+      <div class="svc-ico">🔍</div>
+      <h3>SEO & Content Marketing</h3>
+      <p>Long-term organic visibility through keyword-driven content, technical SEO, and link-building that compounds over time.</p>
+      <div class="svc-tags"><span class="tag">On-Page SEO</span><span class="tag">Blogging</span><span class="tag">Technical</span></div>
+    </div>
+    <div class="svc">
+      <div class="svc-no">Service 05</div>
+      <div class="svc-ico">✉️</div>
+      <h3>Email & Automation</h3>
+      <p>Nurture sequences and drip campaigns that turn your list into a revenue engine — working for you around the clock.</p>
+      <div class="svc-tags"><span class="tag">Klaviyo</span><span class="tag">Mailchimp</span><span class="tag">Drip</span></div>
+    </div>
+    <div class="svc">
+      <div class="svc-no">Service 06</div>
+      <div class="svc-ico">📈</div>
+      <h3>Analytics & Reporting</h3>
+      <p>Monthly reports that translate numbers into decisions — clear, honest, and always focused on what moves the needle.</p>
+      <div class="svc-tags"><span class="tag">GA4</span><span class="tag">Dashboards</span><span class="tag">Insights</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="sec sec-tint">
+  <div class="eyebrow"><span class="ey-line"></span> How We Work</div>
+  <h2>A proven process. <span class="ac">Tailored to you.</span></h2>
+  <p class="lead">No guesswork, no generic playbooks — just a clear, repeatable system built around your goals.</p>
+
+  <div class="proc-grid rev">
+    <div class="proc-step"><div class="proc-num">01</div><h3>Discovery Call</h3><p>We go deep on your business, audience, competitors, and goals. This isn't a sales pitch — it's a working strategy session.</p></div>
+    <div class="proc-step"><div class="proc-num">02</div><h3>Market Research</h3><p>We audit your digital presence, analyze competitors, and pinpoint the highest-leverage opportunities available to you right now.</p></div>
+    <div class="proc-step"><div class="proc-num">03</div><h3>Custom Strategy</h3><p>We build a roadmap tailored to your brand, budget, and growth timeline — not recycled from the last client.</p></div>
+    <div class="proc-step"><div class="proc-num">04</div><h3>Creative Execution</h3><p>Campaigns go live. Assets are built. Content ships. Every piece reflects your brand and speaks directly to your audience.</p></div>
+    <div class="proc-step"><div class="proc-num">05</div><h3>Track & Optimize</h3><p>We monitor performance daily, refine continuously, and report honestly so you always know what's working and what's next.</p></div>
+    <div class="proc-step"><div class="proc-num">06</div><h3>Scale What Works</h3><p>Once we identify your winners, we invest intelligently — growing the channels and tactics that deliver real, compounding ROI.</p></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="sec sec-white">
+  <div class="eyebrow"><span class="ey-line"></span> Why Montoya</div>
+  <h2>The advantage of <span class="ac">choosing new.</span></h2>
+
+  <div class="why-cols rev">
+    <div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-txt"><h4>You are not a number here</h4><p>Established agencies juggle hundreds of accounts. We're intentionally selective so every client gets senior attention, real urgency, and genuine creative investment.</p></div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-txt"><h4>No outdated playbooks</h4><p>We don't have "the way we've always done it." Every strategy starts with your specific brand, your audience, and today's market — not yesterday's template.</p></div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-txt"><h4>Transparent pricing, always</h4><p>No hidden fees, no surprise invoices, no 12-month lock-ins. We operate on trust — and that starts with an honest, upfront number.</p></div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-txt"><h4>We grow when you grow</h4><p>We're building our reputation one client at a time. Your success is our most important referral — so we're motivated to earn every single renewal.</p></div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-txt"><h4>Direct access, always</h4><p>You get our direct line — no account managers, no ticketing systems. Fast answers and real conversations, every time you need us.</p></div></div>
+    </div>
+    <div class="pipeline">
+      <div class="pip-title">Your Growth Pipeline</div>
+      <div class="pip-step"><div class="pip-num">01</div><div class="pip-info"><h5>Attract</h5><p>Drive qualified traffic through SEO, paid ads & social media</p></div></div>
+      <div class="pip-step"><div class="pip-num">02</div><div class="pip-info"><h5>Engage</h5><p>Nurture leads with compelling content and email flows</p></div></div>
+      <div class="pip-step"><div class="pip-num">03</div><div class="pip-info"><h5>Convert</h5><p>Optimize landing pages and funnels for maximum conversion</p></div></div>
+      <div class="pip-step"><div class="pip-num">04</div><div class="pip-info"><h5>Retain</h5><p>Build loyalty through brand consistency and re-engagement</p></div></div>
+      <div class="pip-step"><div class="pip-num">05</div><div class="pip-info"><h5>Scale</h5><p>Double down on what works and grow with full confidence</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="sec sec-tint">
+  <div class="eyebrow"><span class="ey-line"></span> Investment</div>
+  <h2>Simple pricing. <span class="ac">Real value.</span></h2>
+  <p class="lead">Straightforward plans with no hidden fees and no long-term lock-ins.</p>
+
+  <div class="price-grid rev">
+    <div class="plan">
+      <div class="plan-tier">Starter</div>
+      <div class="plan-price"><sup>$</sup>997</div>
+      <div class="plan-per">per month · no contract</div>
+      <div class="plan-desc">For small businesses ready to establish a strong digital presence and start growing their audience online.</div>
+      <ul class="plan-feats">
+        <li class="plan-feat-item"><div class="chk">✓</div>Brand audit & positioning</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Social media (2 platforms, 12 posts/mo)</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Custom graphics & captions</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Monthly analytics report</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Bi-weekly strategy calls</li>
+      </ul>
+      <a href="#cta" class="btn-o" style="display:block; text-align:center;">Get Started</a>
+    </div>
+
+    <div class="plan feat">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-tier">Growth</div>
+      <div class="plan-price" style="color:var(--blue-300)"><sup style="color:var(--blue-400)">$</sup>2,497</div>
+      <div class="plan-per">per month · no contract</div>
+      <div class="plan-desc">For brands ready to invest in multi-channel growth with paid media, SEO, and content at scale.</div>
+      <ul class="plan-feats">
+        <li class="plan-feat-item"><div class="chk">✓</div>Everything in Starter</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Paid ads (Google + Meta)</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>SEO strategy + 4 articles/month</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Email marketing & automation</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Weekly performance reporting</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Dedicated account lead</li>
+      </ul>
+      <a href="#cta" class="btn-sage" style="display:block; text-align:center;">Get Started</a>
+    </div>
+
+    <div class="plan">
+      <div class="plan-tier">Partner</div>
+      <div class="plan-price" style="font-size:2rem; padding-top:0.25rem">Custom</div>
+      <div class="plan-per">tailored to your goals</div>
+      <div class="plan-desc">Full-service marketing partnership for brands with ambitious goals and complex multi-channel needs.</div>
+      <ul class="plan-feats">
+        <li class="plan-feat-item"><div class="chk">✓</div>Everything in Growth</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Full creative direction & production</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Funnel design & CRO</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Influencer & PR outreach</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Priority support & daily access</li>
+        <li class="plan-feat-item"><div class="chk">✓</div>Quarterly growth strategy review</li>
+      </ul>
+      <a href="#cta" class="btn-o" style="display:block; text-align:center;">Let's Talk</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="sec sec-white">
+  <div class="eyebrow"><span class="ey-line"></span> Client Voices</div>
+  <h2>Early clients. <span class="ac">Real feedback.</span></h2>
+  <p class="lead">We may be new — but the experience we bring, and the care we give, isn't.</p>
+
+  <div class="testi-grid rev">
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">"Working with Montoya felt completely different from day one. They actually listened, asked the right questions, and came back with a strategy that felt like it was built entirely for us — because it was."</p>
+      <div class="testi-author"><div class="t-avatar">SR</div><div><div class="t-name">Sofia R.</div><div class="t-role">Founder, Bloom & Co.</div></div></div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">"I was skeptical about working with a newer agency, but honestly that turned out to be my advantage. I got their full attention, fresh ideas no one else pitched, and results I'm genuinely proud of."</p>
+      <div class="testi-author"><div class="t-avatar">DK</div><div><div class="t-name">Daniel K.</div><div class="t-role">CEO, Kova Wellness</div></div></div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">"The energy they bring is something you just don't find at bigger agencies. No handoffs, no corporate nonsense — just people who genuinely care about your brand as much as you do."</p>
+      <div class="testi-author"><div class="t-avatar">ML</div><div><div class="t-name">Maya L.</div><div class="t-role">Director, Terrace Studio</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-in">
+    <div class="eyebrow lt" style="justify-content:center;"><span class="ey-line"></span> Let's Work Together</div>
+    <h2 class="lt">Ready to grow your <span class="ac">brand?</span></h2>
+    <p class="lead lt">Whether you have a clear vision or just a feeling it's time to grow — let's talk. Your first consultation is completely free.</p>
+    <div class="cta-btns">
+      <a href="mailto:hello@montoyamarketing.com" class="btn-sage">Book a Free Consultation →</a>
+      <a href="mailto:hello@montoyamarketing.com" class="btn-gl">Send Us a Message</a>
+    </div>
+    <p class="cta-note">No commitment required. No long-term contracts. Just an honest conversation.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Montoya<span class="dot">.</span></div>
+  <ul class="f-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#cta">Contact</a></li>
+  </ul>
+  <div class="f-copy">© 2025 Montoya Marketing Agency · San Marcos, CA</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
